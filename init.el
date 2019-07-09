@@ -320,6 +320,27 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (add-to-list 'spacemacs-indent-sensitive-modes 'idris-mode)
   (ruby-insert-encoding-magic-comment nil)
+  (defun with-face (str &rest face-plist)
+    (propertize str 'face face-plist))
+  
+  (defun shk-eshell-prompt ()
+    (let ((header-bg "#fff"))
+      (concat
+       (with-face (concat (eshell/pwd) " ") :background header-bg)
+       (with-face (format-time-string "(%Y-%m-%d %H:%M) " (current-time)) :background header-bg :foreground "#888")
+       (with-face
+        (or (ignore-errors (format "(%s)" (vc-responsible-backend default-directory))) "")
+        :background header-bg)
+       (with-face "\n" :background header-bg)
+       (with-face user-login-name :foreground "blue")
+       "@"
+       (with-face "localhost" :foreground "green")
+       (if (= (user-uid) 0)
+           (with-face " #" :foreground "red")
+         " $")
+       " ")))
+  (setq eshell-prompt-function 'shk-eshell-prompt)
+  (setq eshell-highlight-prompt nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
