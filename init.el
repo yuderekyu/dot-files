@@ -341,6 +341,7 @@ you should place your code here."
        " ")))
   (setq eshell-prompt-function 'shk-eshell-prompt)
   (setq eshell-highlight-prompt nil)
+  (global-git-commit-mode t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
