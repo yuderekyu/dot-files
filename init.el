@@ -320,7 +320,7 @@ you should place your code here."
   (ruby-insert-encoding-magic-comment nil)
   (defun with-face (str &rest face-plist)
     (propertize str 'face face-plist))
-  
+
   (defun shk-eshell-prompt ()
     (let ((header-bg "#fff"))
       (concat
@@ -364,3 +364,5 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(find-file "~/todo.org")
