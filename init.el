@@ -325,15 +325,12 @@ you should place your code here."
   (defun shk-eshell-prompt ()
     (let ((header-bg "#fff"))
       (concat
-       (with-face (concat (eshell/pwd) " ") :background header-bg)
-       (with-face (format-time-string "(%Y-%m-%d %H:%M) " (current-time)) :background header-bg :foreground "#888")
+       (with-face (concat (eshell/pwd) " ") :background header-bg :foreground "black")
        (with-face
         (or (ignore-errors (format "(%s)" (vc-responsible-backend default-directory))) "")
         :background header-bg)
        (with-face "\n" :background header-bg)
        (with-face user-login-name :foreground "blue")
-       "@"
-       (with-face "localhost" :foreground "green")
        (if (= (user-uid) 0)
            (with-face " #" :foreground "red")
          " $")
