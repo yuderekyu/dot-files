@@ -321,8 +321,7 @@ you should place your code here."
   (add-to-list 'spacemacs-indent-sensitive-modes 'idris-mode)
   (defun with-face (str &rest face-plist)
     (propertize str 'face face-plist))
-  (setq esh(setq eshell-history-size 1024)
-(setq eshell-prompt-regexp "^[^#$]*[#$] ")
+  esetq esh(setq eshell-history-size 1024)
 
 (load "em-hist")           ; So the history vars are defined
 (if (boundp 'eshell-save-history-on-exit)
