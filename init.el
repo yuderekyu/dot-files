@@ -316,6 +316,9 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  ;; show line numbers by default
+  (global-linum-mode)
+
   ;; codewinds.com/blog/2015-04-02-emacs-flycheck-eslint-jsx.html
   ;; use web-mode for .jsx files
   (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
