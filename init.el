@@ -317,7 +317,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   ;; show line numbers by default
-  (global-linum-mode)
+  (global-display-line-numbers-mode)
 
   ;; codewinds.com/blog/2015-04-02-emacs-flycheck-eslint-jsx.html
   ;; use web-mode for .jsx files
