@@ -265,7 +265,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers 'relative
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -315,9 +315,6 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-
-  ;; show line numbers by default
-  (global-display-line-numbers-mode)
 
   ;; codewinds.com/blog/2015-04-02-emacs-flycheck-eslint-jsx.html
   ;; use web-mode for .jsx files
