@@ -318,9 +318,10 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   ;; switch helm tab completion and selection action
-  (define-key helm-map (kbd "TAB") #'helm-execute-persistent-action)
-  (define-key helm-map (kbd "<tab>") #'helm-execute-persistent-action)
-  (define-key helm-map (kbd "C-z") #'helm-select-action)
+  (require 'helm)
+  (define-key helm-map (kbd "TAB") 'helm-execute-persistent-action)
+  (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+  (define-key helm-map (kbd "C-z") 'helm-select-action)
 
   ;; codewinds.com/blog/2015-04-02-emacs-flycheck-eslint-jsx.html
   ;; use web-mode for .jsx files
