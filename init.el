@@ -98,7 +98,7 @@ values."
    ;; when the current branch is not `develop'. Note that checking for
    ;; new versions works via git commands, thus it calls GitHub services
    ;; whenever you start Emacs. (default nil)
-   dotspacemacs-check-for-update nil
+   dotspacemacs-check-for-update t
    ;; If non-nil, a form that evaluates to a package directory. For example, to
    ;; use different package directories for different Emacs versions, set this
    ;; to `emacs-version'.
@@ -268,7 +268,12 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers 'relative
+   dotspacemacs-line-numbers '(:relative t
+                               :disabled-for-modes dired-mode
+                                                   markdown-mode
+                                                   org-mode
+                                                   text-mode
+                               :size-limit-kb 1000)
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -324,6 +329,7 @@ you should place your code here."
   (setq org-todo-keywords
         '((sequence "TODO" "IN-PROGRESS" "WAITING" "DONE")))
   ;; switch helm tab completion and selection action
+
   (require 'helm)
   (define-key helm-map (kbd "TAB") 'helm-execute-persistent-action)
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
