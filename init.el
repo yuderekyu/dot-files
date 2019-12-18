@@ -46,9 +46,7 @@ values."
      github
      html
      javascript
-     bibtex
      deft
-     latex
      pandoc
      markdown
      org
