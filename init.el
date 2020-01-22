@@ -348,6 +348,9 @@ you should place your code here."
     (smartparens-mode)
     (prettier-js-mode))
 
+  ;; Permanently enable syntax checking.
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+
   (add-hook 'js2-mode-hook #'my/js-plugins)
   (add-hook 'web-mode-hook #'my/js-plugins)
   (add-hook 'rjsx-mode-hook #'my/js-plugins)
