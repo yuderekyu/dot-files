@@ -351,13 +351,13 @@ you should place your code here."
   ;; Permanently enable syntax checking.
   (add-hook 'after-init-hook #'global-flycheck-mode)
 
-  (add-hook 'js2-mode-hook #'my/js-plugins)
-  (add-hook 'web-mode-hook #'my/js-plugins)
-  (add-hook 'rjsx-mode-hook #'my/js-plugins)
-  (add-hook 'json-mode-hook 'prettier-js-mode)
+  ;;(add-hook 'js2-mode-hook #'my/js-plugins)
+  ;;(add-hook 'web-mode-hook #'my/js-plugins)
+  ;;(add-hook 'rjsx-mode-hook #'my/js-plugins)
+  ;;(add-hook 'json-mode-hook 'prettier-js-mode)
 
   ;; Mode hooks
-  (add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
+  ;;(add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
 
   ;; Javascript indentation
   (setq-default js-indent-level 2)
@@ -368,8 +368,6 @@ you should place your code here."
   (setq-default web-mode-markup-indent-offset 2)
   (setq prettier-js-command "prettier")
 
-  ;; turn on flychecking globally
-  (add-hook 'after-init-hook #'global-flycheck-mode)
   ;; disable json-jsonlist checking for json files
   (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(json-jsonlist)))
   ;; disable jshint since we prefer eslint checking
