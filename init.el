@@ -324,11 +324,15 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  ;; copy highlighted text
-  (xterm-mouse-mode -1)
+  ;; Globally turn on line numbers mode
+  (when (version<= "26.0.50" emacs-version )
+    (global-display-line-numbers-mode))
 
   ;; globally turn on word wrap.
   (global-visual-line-mode t)
+
+  ;; copy highlighted text
+  (xterm-mouse-mode -1)
 
   ;; default todo workflow state
   (require 'org)
