@@ -32,8 +32,6 @@ values."
    dotspacemacs-configuration-layers
    '(
      yaml
-     go
-     typescript
      ruby
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -42,7 +40,6 @@ values."
      ;; ----------------------------------------------------------------
      helm
      auto-completion
-     ; better-defaults
      emacs-lisp
      git
      github
@@ -200,7 +197,7 @@ values."
    ;; Maximum number of rollback slots to keep in the cache. (default 5)
    dotspacemacs-max-rollback-slots 5
    ;; If non nil, `helm' will try to minimize the space it uses. (default nil)
-   dotspacemacs-helm-resize nil
+   dotspacemacs-helm-resize t
    ;; if non nil, the helm header is hidden when there is only one source.
    ;; (default nil)
    dotspacemacs-helm-no-header nil
@@ -229,7 +226,7 @@ values."
    dotspacemacs-loading-progress-bar t
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup nil
+   dotspacemacs-fullscreen-at-startup t
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
    dotspacemacs-fullscreen-use-non-native nil
@@ -324,12 +321,13 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  ;; Prevent spacemacs from hanging  startup.
+  ;; https://develop.spacemacs.org/doc/FAQ.html#why-is-spacemacs-hanging-on-startup
+  (setq tramp-ssh-controlmaster-options
+        "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+
   ;; Globally turn on golden ration
   (golden-ratio-mode t)
-
-  ;; Globally turn on line numbers mode
-  (when (version<= "26.0.50" emacs-version )
-    (global-display-line-numbers-mode))
 
   ;; globally turn on word wrap.
   (global-visual-line-mode t)
@@ -337,10 +335,6 @@ you should place your code here."
   ;; copy highlighted text
   (xterm-mouse-mode -1)
 
-  ;; default todo workflow state
-  (require 'org)
-  (setq org-todo-keywords
-        '((sequence "TODO" "IN-PROGRESS" "DONE")))
   ;; switch helm tab completion and selection action
 
   (require 'helm)
