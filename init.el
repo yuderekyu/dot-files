@@ -330,7 +330,7 @@ you should place your code here."
   (golden-ratio-mode t)
 
   ;; globally turn on word wrap.
-  (global-visual-line-mode t)
+  ;; (global-visual-line-mode t)
 
   ;; copy highlighted text
   (xterm-mouse-mode -1)
