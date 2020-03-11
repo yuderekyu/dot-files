@@ -330,7 +330,6 @@ you should place your code here."
   (golden-ratio-mode t)
 
   ;; globally turn on word wrap.
-  ;; (global-visual-line-mode t)
 
   ;; copy highlighted text
   (xterm-mouse-mode -1)
@@ -342,23 +341,6 @@ you should place your code here."
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
   (define-key helm-map (kbd "C-z") 'helm-select-action)
 
-  (defun my/js-plugins()
-    (tern-mode)
-    (company-mode)
-    (flycheck-mode)
-    (smartparens-mode)
-    (prettier-js-mode))
-
-  ;; Permanently enable syntax checking.
-  (add-hook 'after-init-hook #'global-flycheck-mode)
-
-  ;;(add-hook 'js2-mode-hook #'my/js-plugins)
-  ;;(add-hook 'web-mode-hook #'my/js-plugins)
-  ;;(add-hook 'rjsx-mode-hook #'my/js-plugins)
-
-  ;; Mode hooks
-  ;;(add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
-
   ;; Javascript indentation
   (setq-default js-indent-level 2)
   (setq-default css-indent-offset 2)
@@ -366,7 +348,6 @@ you should place your code here."
   (setq-default web-mode-attr-indent-offset 2)
   (setq-default web-mode-code-indent-offset 2)
   (setq-default web-mode-markup-indent-offset 2)
-  (setq prettier-js-command "prettier")
 
   ;; disable json-jsonlist checking for json files
   (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(json-jsonlist)))
