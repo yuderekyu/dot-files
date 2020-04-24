@@ -46,7 +46,6 @@ values."
      html
      javascript
      deft
-     pandoc
      markdown
      org
      (shell :variables
@@ -300,6 +299,8 @@ values."
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup 'trailing
+   ;; Development branch only. Customize mode line. https://develop.spacemacs.org/doc/DOCUMENTATION.html#mode-line.
+   dotspacemacs-mode-line-theme 'spacemacs
    ))
 
 (defun dotspacemacs/user-init ()
@@ -334,7 +335,6 @@ you should place your code here."
   (xterm-mouse-mode -1)
 
   ;; switch helm tab completion and selection action
-
   (require 'helm)
   (define-key helm-map (kbd "TAB") 'helm-execute-persistent-action)
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
@@ -349,13 +349,13 @@ you should place your code here."
   (setq-default web-mode-markup-indent-offset 2)
 
   ;; disable json-jsonlist checking for json files
-  (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(json-jsonlist)))
+  ;; (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(json-jsonlist)))
   ;; disable jshint since we prefer eslint checking
-  (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(javascript-jshint)))
+  ;; (setq-default flycheck-disabled-checkers (append flycheck-disabled-checkers '(javascript-jshint)))
 
   ;; use eslint with web-mode for jsx files
-  (flycheck-add-mode 'javascript-eslint 'web-mode)
-  (flycheck-add-mode 'javascript-eslint 'js2-jsx-mode)
+  ;; (flycheck-add-mode 'javascript-eslint 'web-mode)
+  ;; (flycheck-add-mode 'javascript-eslint 'js2-jsx-mode)
 
   ;; https://github.com/purcell/exec-path-from-shell
   ;; only need exec-path-from-shell on OSX
