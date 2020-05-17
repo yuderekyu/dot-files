@@ -319,6 +319,10 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; turn on spell check autocompletion
+  (setq-default dotspacemacs-configuration-layers
+                '((spell-checking :variables enable-flyspell-auto-completion t)))
+
   ;; prevent mini buffer from displaying previous commands
   ;; https://stackoverflow.com/a/3024055
   (defun stop-using-minibuffer ()
