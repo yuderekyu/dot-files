@@ -390,6 +390,21 @@ you should place your code here."
         (let ((web-mode-enable-part-face nil))
           ad-do-it)
       ad-do-it))
+
+  ;; allow iex to register arrow keys in terminal
+  (defun mo/term-send-up () (interactive) (term-send-raw-string "\e[A"))
+  (defun mo/term-send-down () (interactive) (term-send-raw-string "\e[B"))
+  (defun mo/term-send-right () (interactive) (term-send-raw-string "\e[C"))
+  (defun mo/term-send-left () (interactive) (term-send-raw-string "\e[D"))
+
+  (defun mo/setup-term-send-arrow-keys ()
+    (evil-local-set-key 'insert (kbd "<up>") 'mo/term-send-up)
+    (evil-local-set-key 'insert (kbd "<down>") 'mo/term-send-down)
+    (evil-local-set-key 'insert (kbd "<right>") 'mo/term-send-right)
+    (evil-local-set-key 'insert (kbd "<left>") 'mo/term-send-left)
+    )
+
+  (add-hook 'term-mode-hook 'mo/setup-term-send-arrow-keys)
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
   )
