@@ -41,8 +41,7 @@ This function should only modify configuration layer settings."
      helm
      git
      html
-     javascript
-     latex
+     (javascript :variables javascript-import-tool 'import-js)
      markdown
      org
      ruby
